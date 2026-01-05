@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+    <h2>Log In</h2>
+
+    <form id="loginForm">
+        <input type="email" name="email" id="email" required>
+        <input type="password" name="password" id="password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="errorBox"></div>
+
+   <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = this.email.value.trim();
+            const password = this.password.value;
+
+            if (email === '' || password === '') {
+                showError("Email and password are required");
+                return;
+            }
+            // email format check
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                // TODO :: error message
+                showError("Invalid email format");
+                return;
+            }
+            
+            // TODO :: uncomment the password check
+            // if (password.length > 0) {
+            //     // TODO :: error message
+            //     showError("Password must be at least 8 characters");
+            //     return;
+            // }
+
+            // ajax 
+            sendLoginRequest(email, password);
+        });        
+
+        function showError(msg) {
+            document.getElementById("errorBox").innerText = msg;
+        }
+
+        function sendLoginRequest(email, password) {
+            const formData = new FormData();
+            formData.append("email", email);
+            formData.append("password", password);
+
+            fetch("login.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "success") {
+                    // UI logic
+                    document.write('loged in');
+                } else {
+                    showError(data.message);
+                }
+            })
+            .catch(() => showError("Network error"));
+        }
+
+   </script>
+</body>
+</html>

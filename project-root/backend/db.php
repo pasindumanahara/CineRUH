@@ -1,8 +1,8 @@
 <?php  
-    $DB_HOST = "";
-    $DB_NAME = "";
-    $DB_USER = "";
-    $DB_PASSWORD = "";
+    $DB_HOST = "localhost";
+    $DB_NAME = "movie";
+    $DB_USER = "root";
+    $DB_PASSWORD = "1234";
 
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
