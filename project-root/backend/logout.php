@@ -20,13 +20,13 @@
             $params["httponly"]
         );
     }
-
+    
     // Return json response
     header('Content-Type: application/json');
     // TODO :: remove the message if no need further
     echo json_encode([
-            'status' => 'success',
-            'message' => 'Logout Successfully.'
+            'status' => 'success'
+            // add a message too 
         ]);
     exit;
 
