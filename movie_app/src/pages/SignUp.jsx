@@ -1,4 +1,45 @@
+import { useState } from "react";
+
 export default function SignUp() {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUserName] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    fetch("http://localhost/signup.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email,
+        username: username,
+        password: password,
+        confirmPassword: confirmPassword
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success") {
+          setSuccessMessage("Login successful");
+          
+        } else {
+          setErrorMessage(data.message);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        setErrorMessage("Server error!");
+      });
+  };
+
   return (
     <div className="font-poppins relative">
       <div className="bg-[#0B090A] h-[100vh] flex justify-around items-center z-1">
@@ -21,13 +62,15 @@ export default function SignUp() {
           <h1 className="text-[#D9D9D9] text-4xl font-semibold mb-8">
             Sign Up
           </h1>
-          <form className="flex flex-col gap-y-6">
+          <form  onSubmit={handleLogin} className="flex flex-col gap-y-6">
             <div className="flex flex-col">
               <label htmlFor="" className="text-[#D9D9D9] ml-4 mb-1">
                 Name
               </label>
               <input
                 type="text"
+                value={username}
+                onChange={(e) => setUserName(e.target.value)}
                 placeholder="Group Nineteen"
                 className="h-14 bg-[#252B30] px-4 w-[400px] placeholder-[#797979] placeholder:font-medium focus:ring-1 focus:ring-[#282828] rounded-lg text-[#D9D9D9]"
               />
@@ -37,7 +80,9 @@ export default function SignUp() {
                 Email
               </label>
               <input
-                type="email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="group19@domain.lk"
                 className="h-14 bg-[#252B30] px-4 w-[400px] placeholder-[#797979] placeholder:font-medium focus:ring-1 focus:ring-[#282828] rounded-lg text-[#D9D9D9]"
               />
@@ -48,6 +93,8 @@ export default function SignUp() {
               </label>
               <input
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="h-14 bg-[#252B30] px-4 w-[400px] placeholder-[#95A5A6] placeholder:font-medium focus:ring-1 focus:ring-[#282828] rounded-lg text-[#D9D9D9]"
               />
             </div>
@@ -57,12 +104,21 @@ export default function SignUp() {
               </label>
               <input
                 type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 className="h-14 bg-[#252B30] px-4 w-[400px] placeholder-[#95A5A6] placeholder:font-medium focus:ring-1 focus:ring-[#282828] rounded-lg text-[#D9D9D9]"
               />
             </div>
             <button className="bg-[#E74C3C] text-[#D9D9D9] h-14 rounded-lg text-lg font-semibold">
               Sign Up
             </button>
+              <p className="text-center text-sm font-medium mt-2 text-[#E74C3C]">
+                {errorMessage}
+              </p>
+
+              <p className="text-center text-sm font-medium mt-2 text-green-500">
+                {successMessage}
+              </p>
           </form>
         </div>
       </div>

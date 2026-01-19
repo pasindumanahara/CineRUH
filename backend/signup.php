@@ -1,11 +1,12 @@
 <?php
+require_once "db.php";
     session_start();
     header("Content-Type: application/json");
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: POST");
     header("Access-Control-Allow-Headers: Content-Type");
 
-    require_once "db.php";
+    
 
     // Get frontend data
     $data = json_decode(file_get_contents("php://input"), true);
@@ -20,7 +21,7 @@
 
 
     // Check any feild is empty
-    if ($name === '' || $email === '' || $password || $confirmPassword){
+    if ($name === '' || $email === '' || $password === '' || $confirmPassword === ''){
         echo json_encode(["status" => "error", "message" => "Please fill all the fields"]);
         exit;
     }
@@ -48,12 +49,11 @@
     $test_result = mysqli_query($conn, $test_query);
 
     // TODO :: Check this for what is the return
-    // might not work
-    if ($test_result){
-        echo json_encode(["status" => "error", "message" => "Already Signed"]);
+    if (mysqli_num_rows($test_result) > 0) {
+        echo json_encode(["status" => "error", "message" => "Email already registered"]);
         exit;
     }
-
+ 
     // Hash the password
     $hashed_password = password_hash($password,PASSWORD_DEFAULT);
 
@@ -64,16 +64,13 @@
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
-        echo json_encode(["status" => "error", "message" => "Database erro"]);
+        echo json_encode(["status" => "error", "message" => "Database error"]);
         exit;
     }
-        
-    $_SESSION['name'] = $name;
 
     echo json_encode([
         "status" => "success",
         "message" => "User sign-up successfully",
-        "email"  => $row['email']
     ]);
     
 
