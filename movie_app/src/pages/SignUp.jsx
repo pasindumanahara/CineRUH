@@ -29,7 +29,8 @@ export default function SignUp() {
       .then(data => {
         if (data.status === "success") {
           setSuccessMessage("Login successful");
-          
+          // changed here
+          setErrorMessage("");
         } else {
           setErrorMessage(data.message);
         }
