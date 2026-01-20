@@ -1,6 +1,8 @@
 <?php
-require_once "db.php";
+    require_once "db.php";
+    
     session_start();
+    
     header("Content-Type: application/json");
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: POST");
@@ -68,9 +70,17 @@ require_once "db.php";
         exit;
     }
 
+    // Creating session variables 
+    $_SESSION['name'] = $name;
+
+    // Building the message to pass into the frontend to display 
+    // ucfirst() --> this methode will uppercase only the first letter in a string
+    $ucName = ucfirst($name);
+    $message = "User {$ucName} Sign-up Successfully!";
+
     echo json_encode([
         "status" => "success",
-        "message" => "User sign-up successfully",
+        "message" => $message,
     ]);
     
 

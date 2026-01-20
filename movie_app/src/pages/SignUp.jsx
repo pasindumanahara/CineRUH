@@ -28,7 +28,7 @@ export default function SignUp() {
       .then(res => res.json())
       .then(data => {
         if (data.status === "success") {
-          setSuccessMessage("Login successful");
+          setSuccessMessage(data.message);
           // changed here
           setErrorMessage("");
         } else {
