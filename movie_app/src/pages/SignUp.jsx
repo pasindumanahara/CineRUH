@@ -1,3 +1,4 @@
+// TODO :: Navigate <==> status is success, still doin that with react route dom
 import { useState } from "react";
 
 export default function SignUp() {
@@ -29,8 +30,10 @@ export default function SignUp() {
       .then(data => {
         if (data.status === "success") {
           setSuccessMessage(data.message);
-          // changed here
           setErrorMessage("");
+          // setTimeout(() => {
+          //   navigate("/home"); 
+          // }, 1000);
         } else {
           setErrorMessage(data.message);
         }
@@ -110,7 +113,7 @@ export default function SignUp() {
                 className="h-14 bg-[#252B30] px-4 w-[400px] placeholder-[#95A5A6] placeholder:font-medium focus:ring-1 focus:ring-[#282828] rounded-lg text-[#D9D9D9]"
               />
             </div>
-            <button className="bg-[#E74C3C] text-[#D9D9D9] h-14 rounded-lg text-lg font-semibold">
+            <button className="bg-[#E74C3C] text-[#D9D9D9] h-14 rounded-lg text-lg font-semibold hover:bg-[#C0392B] transition-colors">
               Sign Up
             </button>
               <p className="text-center text-sm font-medium mt-2 text-[#E74C3C]">

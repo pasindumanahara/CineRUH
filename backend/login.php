@@ -13,9 +13,25 @@
     $email    = $data['email'] ?? '';
     $password = $data['password'] ?? '';
 
+    // Check email and password null 
+    if ($email === "" || $password === "") {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Please fill all fields"
+        ]);
+        exit;
+    }
+
     // Database connection check
     if (!$conn) {
         echo json_encode(["status" => "error", "message" => "DB error"]);
+        exit;
+    }
+
+    // Check email is in valid format
+    $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+    if(preg_match($pattern, $email) !== 1){
+        echo json_encode(["status" => "error", "message" => "Invalid email format"]);
         exit;
     }
 
@@ -41,12 +57,13 @@
     }
 
     $_SESSION['name'] = $row['name'];
+    $name = $_SESSION['name'];
 
     // Success
     echo json_encode([
         "status" => "success",
-        "email"  => $row['email'],
-        "name" => $_SESSION['name']
+        "message" => "Successfully Logged!" ,
+        "name" => "$name"      
     ]);
 
 ?>

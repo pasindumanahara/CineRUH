@@ -37,7 +37,7 @@
     // Check email is in valid format
     $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
     if(preg_match($pattern, $email) !== 1){
-        echo json_encode(["status" => "error", "message" => "Invalide email format"]);
+        echo json_encode(["status" => "error", "message" => "Invalid email format"]);
         exit;
     }
 
