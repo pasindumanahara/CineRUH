@@ -1,5 +1,4 @@
 import NavBar from "../components/NavBar";
-
 export default function AboutProject() {
   return (
     <div className="font-poppins relative bg-[#0B090A] min-h-screen">
@@ -156,3 +155,4 @@ export default function AboutProject() {
     </div>
   );
 }
+
