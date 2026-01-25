@@ -81,6 +81,8 @@
     echo json_encode([
         "status" => "success",
         "message" => $message,
+        "name" => "$name",
+        "email" => "$email"
     ]);
     
 

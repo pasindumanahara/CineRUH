@@ -14,8 +14,10 @@
     $data = json_decode(file_get_contents("php://input"), true);
     
     // TODO :: match the key values with the frontend form
-    $key        = trim($data['key'] ?? '');
-    $movie_name = trim($data['movie_name'] ?? '');
+    $movie_id        = trim($data['movie_id'] ?? '');
+    $email        = trim($data['email'] ?? '');
+    
+    
 
     // check db connection
     if (!$conn){
@@ -24,17 +26,22 @@
     }
 
     // Check exist or not
-    $query = "SELECT*FROM fav_list where `key`=$key LIMIT 1";
+    $query = "SELECT*FROM fav_list where `keys`='$movie_id' AND email = '$email' LIMIT 1";
 
     $result = mysqli_query($conn, $query);
 
-    if ($result){  
+    if (mysqli_num_rows($result) > 0){  
         // Already add to the Favourite list
-        echo json_encode(["status"=>"success"]); 
+        echo json_encode([
+            "status"=>"success",
+            "in_favorites" => true,
+
+        ]); 
         exit;
     } else {
         // Not in the Favourite list
-        echo json_encode(["status"=>"error"]); 
+        echo json_encode(["status"=>"error","in_favorites" => false,
+        ]); 
         exit;
     }
 ?>

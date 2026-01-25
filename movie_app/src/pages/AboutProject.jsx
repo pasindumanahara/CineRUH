@@ -1,7 +1,11 @@
-import NavBar from "../components/NavBar";
+import NavBarNormal from "../components/NavBarNormal";
+
 export default function AboutProject() {
   return (
     <div className="font-poppins relative bg-[#0B090A] min-h-screen">
+      {/* Add NavBarNormal here */}
+      <NavBarNormal />
+      
       <div className="relative">
         <div className="px-24 py-20 max-w-[1200px] mx-auto">
           <div className="flex justify-between items-center gap-x-12 mb-32">
@@ -155,4 +159,3 @@ export default function AboutProject() {
     </div>
   );
 }
-

@@ -1,10 +1,10 @@
- import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-export default function NavBar() {
+export default function NavBar({query, setQuery, searchMovies}) {
+  const API_KEY = "875a977ab94cd7108c47a3bed943830f";
+  const navigate = useNavigate();
 
-  const navigate = useNavigate(); 
-
-  const handleLogout = () => {
+   const toLogout = () => {
     fetch("http://localhost/logout.php", {
       method: "POST",
       headers: {
@@ -14,41 +14,49 @@ export default function NavBar() {
       .then(res => res.json())
       .then(data => {
         if (data.status === "success") {
-          // This removes the is logged in save for stop navigation
+          // Removing local storage item
           localStorage.removeItem("isLoggedIn");
-          console.error(data.message);
+          localStorage.clear();
           setTimeout(() => {
             navigate("/"); 
-          }, 500); 
-        } else {
-          console.error("Logout failed");
+          }, 500);
         }
       })
       .catch(err => {
-          console.error(err);
+        console.error(err);
       });
-    
-  };
-  const navigateToAbout = () => {
-    setTimeout(() => {
-      navigate("/aboutproject");
-    }, 0);
-  };
+    };
 
+    const toAbout = ()=>{
+      setTimeout(()=>{  
+        navigate("/aboutproject")
+      },500);
+    }
+    const toHome = ()=>{
+      setTimeout(()=>{  
+        navigate("/home")
+      },500);
+    }
+    
   return (
     <div className="font-poppins bg-[#0B090A] flex justify-between items-center px-26 py-4">
       <ul className="text-[#ECF0F1] flex justify-between items-center gap-8">
-        <li className="hover:cursor-pointer">Home</li>
+        <li className="hover:cursor-pointer" onClick={toHome}>Home</li>
         <li className="hover:cursor-pointer">Contact Us</li>
-        <li className="hover:cursor-pointer" onClick={navigateToAbout}>About Project</li>
+        <li className="hover:cursor-pointer" onClick={toAbout}>About Project</li>
       </ul>
       <div className="w-100 h-14 bg-[#252B30] rounded-xl flex justify-between items-center pl-5 pr-2">
         <input
           type="text"
           placeholder="Search for movies and shows"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
           className="focus:outline-none placeholder:text-[#797979] text-[#ECF0F1] w-64"
         />
-        <button className="w-10 h-10 bg-[#E74C3C] rounded-xl flex items-center justify-center hover:cursor-pointer">
+        <button
+          className="w-10 h-10 bg-[#E74C3C] rounded-xl flex items-center justify-center hover:cursor-pointer"
+          onClick={searchMovies}
+        >
           <svg
             width="20px"
             height="20px"
@@ -70,14 +78,10 @@ export default function NavBar() {
         <button className="bg-[#252B30] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg mr-6 hover:cursor-pointer">
           Account
         </button>
-        <button className="bg-[#E74C3C] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg hover:cursor-pointer"  onClick={handleLogout}>
+        <button className="bg-[#E74C3C] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg hover:cursor-pointer" onClick={toLogout}>
           Log Out
         </button>
       </div>
     </div>
   );
 }
-
-
-
-
