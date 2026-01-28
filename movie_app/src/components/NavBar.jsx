@@ -3,8 +3,7 @@ import {useNavigate} from "react-router-dom";
 export default function NavBar({query, setQuery, searchMovies}) {
   const API_KEY = "875a977ab94cd7108c47a3bed943830f";
   const navigate = useNavigate();
-
-   const toLogout = () => {
+  const toLogout = () => {
     fetch("http://localhost/logout.php", {
       method: "POST",
       headers: {
@@ -28,11 +27,13 @@ export default function NavBar({query, setQuery, searchMovies}) {
     };
 
     const toAbout = ()=>{
+      localStorage.setItem("searchBar",false);
       setTimeout(()=>{  
         navigate("/aboutproject")
       },500);
     }
     const toHome = ()=>{
+      localStorage.setItem("searchBar",true);
       setTimeout(()=>{  
         navigate("/home")
       },500);
@@ -52,10 +53,12 @@ export default function NavBar({query, setQuery, searchMovies}) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="focus:outline-none placeholder:text-[#797979] text-[#ECF0F1] w-64"
+          disabled={localStorage.getItem("searchBar") === true}
         />
         <button
           className="w-10 h-10 bg-[#E74C3C] rounded-xl flex items-center justify-center hover:cursor-pointer"
           onClick={searchMovies}
+          disabled={localStorage.getItem("searchBar") === true}
         >
           <svg
             width="20px"

@@ -1,10 +1,10 @@
-import NavBarNormal from "../components/NavBarNormal";
+import NavBar from "../components/NavBar";
 
 export default function AboutProject() {
   return (
     <div className="font-poppins relative bg-[#0B090A] min-h-screen">
       {/* Add NavBarNormal here */}
-      <NavBarNormal />
+      <NavBar />
       
       <div className="relative">
         <div className="px-24 py-20 max-w-[1200px] mx-auto">

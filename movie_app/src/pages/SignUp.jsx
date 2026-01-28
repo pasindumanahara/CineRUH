@@ -37,6 +37,8 @@ export default function SignUp() {
           localStorage.setItem("email", data.email);
           localStorage.setItem("name", data.name);
           localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("searchBar",true);
+
           setTimeout(() => {
             navigate("/home"); 
           }, 500);

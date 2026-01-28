@@ -68,6 +68,7 @@ export default function App() {
 
       {/* Sign up */}
       <Route path="/signup" element={<SignUp />} />
+   
 
       <Route path="/aboutproject" element={
         <AboutProject />}/>
