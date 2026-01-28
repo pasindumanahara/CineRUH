@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 export default function AboutProject() {
   return (
     <div className="font-poppins relative bg-[#0B090A] min-h-screen">
-      {/* Add NavBarNormal here */}
+      {/* NavBar Here */}
       <NavBar />
       
       <div className="relative">
