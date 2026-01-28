@@ -34,6 +34,9 @@ export default function SignUp() {
         if (data.status === "success") {
           setSuccessMessage(data.message);
           setErrorMessage("");
+          localStorage.setItem("email", data.email);
+          localStorage.setItem("name", data.name);
+          localStorage.setItem("isLoggedIn", "true");
           setTimeout(() => {
             navigate("/home"); 
           }, 500);
