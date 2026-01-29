@@ -3,13 +3,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import NavBarNormal from "./components/NavBarNormal";
 import NavBar from "./components/NavBar";
-//import Home from "./pages/Home";
 import AboutProject from "./pages/AboutProject";
 import SearchItem from "./components/SearchItem";
 import Details from "./components/Details";
 import DetailPanes from "./components/DetailPanes";
+import Contact from "./pages/Contact";
 
 
 function ProtectedRoute({ children }) {
@@ -68,7 +67,8 @@ export default function App() {
 
       {/* Sign up */}
       <Route path="/signup" element={<SignUp />} />
-   
+      
+      <Route path="/contact" element={<Contact />} />
 
       <Route path="/aboutproject" element={
         <AboutProject />}/>

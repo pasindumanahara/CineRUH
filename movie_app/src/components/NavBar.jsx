@@ -38,12 +38,19 @@ export default function NavBar({query, setQuery, searchMovies}) {
         navigate("/home")
       },500);
     }
+    const toContact = ()=>{
+      localStorage.setItem("searchBar",false);
+      setTimeout(()=>{  
+        navigate("/contact")
+      },500);
+    }
+    
     
   return (
     <div className="font-poppins bg-[#0B090A] flex justify-between items-center px-26 py-4">
       <ul className="text-[#ECF0F1] flex justify-between items-center gap-8">
         <li className="hover:cursor-pointer" onClick={toHome}>Home</li>
-        <li className="hover:cursor-pointer">Contact Us</li>
+        <li className="hover:cursor-pointer" onClick={toContact}>Contact Us</li>
         <li className="hover:cursor-pointer" onClick={toAbout}>About Project</li>
       </ul>
       <div className="w-100 h-14 bg-[#252B30] rounded-xl flex justify-between items-center pl-5 pr-2">
@@ -56,7 +63,7 @@ export default function NavBar({query, setQuery, searchMovies}) {
           disabled={localStorage.getItem("searchBar") === true}
         />
         <button
-          className="w-10 h-10 bg-[#E74C3C] rounded-xl flex items-center justify-center hover:cursor-pointer"
+          className="w-10 h-10 bg-[#E74C3C] rounded-xl flex items-center justify-center hover:cursor-pointer hover:bg-[#C0392B] transition-colors"
           onClick={searchMovies}
           disabled={localStorage.getItem("searchBar") === true}
         >
@@ -81,7 +88,7 @@ export default function NavBar({query, setQuery, searchMovies}) {
         <button className="bg-[#252B30] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg mr-6 hover:cursor-pointer">
           Account
         </button>
-        <button className="bg-[#E74C3C] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg hover:cursor-pointer" onClick={toLogout}>
+        <button className="bg-[#E74C3C] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg hover:cursor-pointer hover:bg-[#C0392B] transition-colors" onClick={toLogout}>
           Log Out
         </button>
       </div>
