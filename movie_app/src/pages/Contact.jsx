@@ -1,7 +1,42 @@
-import React from 'react';
 import NavBar from '../components/NavBar';
+import { useState } from "react";
+export default function Contact (){
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");  
+  const [statusMessage, setStatusMessage] = useState("");
+  const [message, setMessage] = useState("");
+  let temp; 
+  
+  const sendMessage = ()=> {
 
-const ContactUs = () => {
+    fetch("http://localhost/sendMessage.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        message: message
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success") {
+          setMessage(data.message);
+          temp = true;
+        } else {
+          setMessage(data.message);
+          temp = false;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        sendMessage("Server error!");
+        temp = false;
+      });
+  }
+
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#0B090A', fontFamily: 'Arial, sans-serif' }}>
       <NavBar />
@@ -138,7 +173,8 @@ const ContactUs = () => {
                       outline: 'none',
                       boxSizing: 'border-box'
                     }}
-                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
 
@@ -167,49 +203,9 @@ const ContactUs = () => {
                       outline: 'none',
                       boxSizing: 'border-box'
                     }}
-                    required
+                    value={email}
+                    onChange={(e)=>setEmail(e.target.value)}                    
                   />
-                </div>
-
-                {/* Industry Dropdown */}
-                <div>
-                  <label style={{ 
-                    display: 'block',
-                    fontSize: '11px',
-                    fontWeight: '500',
-                    color: '#a1a1aa',
-                    marginBottom: '8px'
-                  }}>
-                    Industry
-                  </label>
-                  <select
-                    style={{ 
-                      width: '100%',
-                      padding: '12px 16px',
-                      borderRadius: '12px',
-                      border: '1px solid #3f3f46',
-                      backgroundColor: '#18181b',
-                      fontSize: '14px',
-                      color: '#fafafa',
-                      outline: 'none',
-                      cursor: 'pointer',
-                      boxSizing: 'border-box',
-                      appearance: 'none',
-                      backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%23a1a1aa\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'right 1rem center',
-                      backgroundSize: '1.25rem',
-                      paddingRight: '2.5rem'
-                    }}
-                    required
-                  >
-                    <option value="">Select</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="technology">Technology</option>
-                    <option value="education">Education</option>
-                    <option value="media">Media & Publishing</option>
-                    <option value="other">Other</option>
-                  </select>
                 </div>
 
                 {/* Message Textarea */}
@@ -239,18 +235,19 @@ const ContactUs = () => {
                       fontFamily: 'Arial, sans-serif',
                       boxSizing: 'border-box'
                     }}
-                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}                   
                   />
                 </div>
 
-                {/* Message Display - Add your state variable here */}
+                
                 <p style={{ 
                   textAlign: 'center',
                   fontSize: '14px',
-                  color: '#22c55e', // Change to '#ef4444' for error
+                  color: temp ? '#22c55e' : '#ef4444', // Change to '#ef4444' for error
                   margin: 0
                 }}>
-                  {/* Your success/error message will go here */}
+                  {statusMessage}
                 </p>
 
                 {/* Submit Button */}
@@ -288,5 +285,3 @@ const ContactUs = () => {
     </div>
   );
 };
-
-export default ContactUs;
