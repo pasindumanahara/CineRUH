@@ -274,7 +274,7 @@ export default function Details({id, type}) {
   console.log(data);
   return (
     <div
-      className={`font-poppins my-8 bg-[#161A1D] text-[#ECF0F1]  ${detailsLoading || !data ? "flex items-center justify-center" : ""}`}
+      className={`font-poppins my-8 bg-[#161A1D] text-[#ECF0F1] max-w-210 ${detailsLoading || !data ? "flex items-center justify-center" : ""}`}
     >
       {detailsLoading ? (
         <p className="text-[#95A5A6]">Loading...</p>
