@@ -16,11 +16,9 @@ export default function AboutProject() {
                 <span className="text-[#FF6224]">Web Application</span>
               </h1>
               <p className="text-lg text-[#aaaaaa]">
-                Are you facing any problems or need help, well We're<br />
-                here to help you. Reach to us anytime.
-              </p>
+                This project focuses on helping users explore movies, view detailed information, and manage personal watchlists. Users can mark movies as favorites, watched, or watch later—all through a clean interface.</p>
             </div>
-            <div>
+            <div className="min-w-[35%]">
               <img 
                 src="/OBJECTS.png" 
                 alt="Developer illustration" 
@@ -41,9 +39,7 @@ export default function AboutProject() {
                   <div>
                     <h3 className="text-2xl font-semibold text-[#DCDCDC] mb-3">Tools Used</h3>
                     <p className="text-[#aaaaaa]">
-                      Are you facing any problems or need<br />
-                      help, well We're here to help you.<br />
-                      Reach to us anytime.
+                     Modern design and prototyping tools were used to plan layouts, user flows, and interactions before development began.
                     </p>
                   </div>
                 </div>
@@ -54,7 +50,7 @@ export default function AboutProject() {
                   <div className="flex-shrink-0">
                     <div className="grid grid-cols-2 gap-2">
                       <div className="w-12 h-12 bg-[#FF6224] rounded"></div>
-                      <div className="w-12 h-12 bg-[#252B30] rounded border border-[#4a4a4a]"></div>
+                      <div className="w-12 h-12 bg-[#0B090A] rounded border border-[#4a4a4a]"></div>
                       <div className="w-12 h-12 bg-[#252B30] rounded border border-[#4a4a4a]"></div>
                       <div className="w-12 h-12 bg-[#DCDCDC] rounded"></div>
                     </div>
@@ -62,9 +58,7 @@ export default function AboutProject() {
                   <div>
                     <h3 className="text-2xl font-semibold text-[#DCDCDC] mb-3">Color Palatte</h3>
                     <p className="text-[#aaaaaa]">
-                      Are you facing any problems or need<br />
-                      help, well We're here to help you.<br />
-                      Reach to us anytime.
+                     A dark color scheme was selected to highlight movie content and provide a clean, distraction-free viewing experience.
                     </p>
                   </div>
                 </div>
@@ -79,9 +73,7 @@ export default function AboutProject() {
                 <div>
                   <h3 className="text-2xl font-semibold text-[#DCDCDC] mb-3">Typography</h3>
                   <p className="text-[#aaaaaa]">
-                    Are you facing any problems or need<br />
-                    help, well We're here to help you.<br />
-                    Reach to us anytime.
+                   Clear and modern fonts were chosen to ensure movie details remain readable across all screen sizes.
                   </p>
                 </div>
               </div>
@@ -102,10 +94,8 @@ export default function AboutProject() {
                 <div>
                   <h3 className="text-2xl font-semibold text-[#DCDCDC] mb-3">Tech Stack</h3>
                   <p className="text-[#aaaaaa]">
-                    Are you facing any problems or need help,<br />
-                    well We're here to help you. Reach to us<br />
-                    anytime.
-                  </p>
+                    A full-stack setup integrates external movie APIs with user-specific data handling.
+                    </p>
                 </div>
               </div>
             </div>
@@ -118,15 +108,14 @@ export default function AboutProject() {
                     <span className="text-[#DCDCDC]">Development</span>
                   </h3>
                   <p className="text-[#aaaaaa]">
-                    Are you facing any problems or need help, well We're<br />
-                    here to help you. Reach to us anytime.
+                    Users can browse movies, view details, and manage favorites, watched, and watch-later lists.
                   </p>
                 </div>
                 <div className="flex justify-end">
                   <img 
                     src="/28158111_frontend_4 1.png" 
                     alt="Frontend Development" 
-                    className="w-[350px] h-auto object-contain"
+                    className="w-[500px] h-auto object-contain"
                   />
                 </div>
               </div>
@@ -138,7 +127,7 @@ export default function AboutProject() {
                   <img 
                     src="/28694506_backend_4 1.png" 
                     alt="Backend Development" 
-                    className="w-[350px] h-auto object-contain"
+                    className="w-[500px] h-auto object-contain"
                   />
                 </div>
                 <div className="flex flex-col justify-center">
@@ -147,8 +136,7 @@ export default function AboutProject() {
                     <span className="text-[#DCDCDC]">Development</span>
                   </h3>
                   <p className="text-[#aaaaaa]">
-                    Are you facing any problems or need help, well We're<br />
-                    here to help you. Reach to us anytime.
+                    The backend handles authentication and user lists while fetching movie data from external APIs.
                   </p>
                 </div>
               </div>

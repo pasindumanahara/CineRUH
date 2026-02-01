@@ -15,10 +15,14 @@
     $message = trim($data['message'] ?? '');
 
     // Validate user email
-    $validate_user_query = "SELECT * FROM user WHERE email = '$email'";
+    $validate_user_query = "SELECT * FROM users WHERE email = '$email'";
 
     if (!$conn){
-
+         echo json_encode([
+            "status" => "error",
+            "message" => "DB error"
+        ]);
+        exit;
     }
 
     $first_line = mysqli_query($conn, $validate_user_query)->fetch_assoc();
@@ -31,10 +35,10 @@
         exit;
     }
 
-    $send_data_query = "INSERT INTO messages (name,email,message) VALUES ('$name','$email','$message')";
+    $send_data_query = "INSERT INTO messages (email,name,message) VALUES ('$name','$email','$message')";
     $result = mysqli_query($conn, $send_data_query);
     
-    if (!$resultes) {
+    if (!$result) {
         echo json_encode([
             "status" => "error",
             "message" => "DB Error"

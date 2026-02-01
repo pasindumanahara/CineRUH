@@ -9,6 +9,8 @@ import SearchItem from "./components/SearchItem";
 import Details from "./components/Details";
 import DetailPanes from "./components/DetailPanes";
 import Contact from "./pages/Contact";
+import Account from "./pages/Account";
+
 
 
 function ProtectedRoute({ children }) {
@@ -72,6 +74,9 @@ export default function App() {
 
       <Route path="/aboutproject" element={
         <AboutProject />}/>
+        
+      <Route path="/account" element={
+        <Account />}/>
       
     </Routes>
   );

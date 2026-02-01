@@ -44,6 +44,12 @@ export default function NavBar({query, setQuery, searchMovies}) {
         navigate("/contact")
       },500);
     }
+    const toAccount = ()=>{
+      localStorage.setItem("searchBar",false);
+      setTimeout(()=>{  
+        navigate("/account")
+      },500);
+    }   
     
     
   return (
@@ -85,7 +91,7 @@ export default function NavBar({query, setQuery, searchMovies}) {
         </button>
       </div>
       <div>
-        <button className="bg-[#252B30] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg mr-6 hover:cursor-pointer">
+        <button className="bg-[#252B30] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg mr-6 hover:cursor-pointer" onClick={toAccount}>
           Account
         </button>
         <button className="bg-[#E74C3C] text-[#ECF0F1] py-2 px-5 font-[15px] rounded-lg hover:cursor-pointer hover:bg-[#C0392B] transition-colors" onClick={toLogout}>
