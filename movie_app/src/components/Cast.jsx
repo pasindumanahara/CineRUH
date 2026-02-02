@@ -1,5 +1,5 @@
 export default function Cast({member}) {
-  const PROFILE_PATH = `https://image.tmdb.org/t/p/original/${member.profile_path}`;
+  const PROFILE_PATH = `https://image.tmdb.org/t/p/w45/${member.profile_path}`;
 
   return (
     <div className="flex items-center justify-between gap-2 w-max rounded-lg">

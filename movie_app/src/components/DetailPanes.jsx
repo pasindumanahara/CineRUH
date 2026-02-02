@@ -13,7 +13,7 @@ export default function DetailPane({ movies, loading }) {
       <div>
         <h1 className="text-[#D9D9D9] text-2xl mb-5 ">Search Result</h1>
         {/* Changed scroll bar style here - same change for both scroll bars */}
-        <div className="bg-[#161A1D] w-87 h-155 rounded-xl flex flex-col items-center justify-center overflow-y-scroll 
+        <div className="bg-[#161A1D] w-87 min-h-135 rounded-xl flex flex-col items-center justify-center overflow-y-scroll 
                         [&::-webkit-scrollbar]:w-2
                         [&::-webkit-scrollbar-track]:bg-[#0f1215]
                         [&::-webkit-scrollbar-thumb]:bg-[#2c3137]
