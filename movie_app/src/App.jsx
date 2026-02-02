@@ -10,6 +10,7 @@ import Details from "./components/Details";
 import DetailPanes from "./components/DetailPanes";
 import Contact from "./pages/Contact";
 import Account from "./pages/Account";
+import WatchLists from "./pages/WatchLists";
 
 
 
@@ -61,8 +62,9 @@ export default function App() {
         path="/home"
         element={
           <ProtectedRoute>
-            <NavBar query={query} setQuery={setQuery} searchMovies={searchMovies} />
-            <DetailPanes movies={movies} loading={loading} />
+            {/* <NavBar query={query} setQuery={setQuery} searchMovies={searchMovies} />
+            <DetailPanes movies={movies} loading={loading} /> */}
+           {/*<WatchLists/>*/}
           </ProtectedRoute>
         }
       />
@@ -76,7 +78,7 @@ export default function App() {
         <AboutProject />}/>
         
       <Route path="/account" element={
-        <Account />}/>
+        <WatchLists />}/>
       
     </Routes>
   );
