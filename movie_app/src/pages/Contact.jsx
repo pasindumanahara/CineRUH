@@ -114,7 +114,7 @@ export default function Contact (){
                   </div>
                   <div>
                     <p style={{ fontSize: '11px', color: '#71717a', marginBottom: '2px' }}>E-mail</p>
-                    <p style={{ fontSize: '14px', fontWeight: '500', color: '#fafafa' }}>csc113a@gmail.com</p>
+                    <p style={{ fontSize: '14px', fontWeight: '500', color: '#fafafa' }}>cineruh@gmail.com</p>
                   </div>
                 </div>
 
@@ -161,7 +161,7 @@ export default function Contact (){
                   </label>
                   <input 
                     type="text"
-                    placeholder="Jane Smitherton"
+                    placeholder="Name"
                     style={{ 
                       width: '100%',
                       padding: '12px 16px',
@@ -191,7 +191,7 @@ export default function Contact (){
                   </label>
                   <input 
                     type="email"
-                    placeholder="jane@smitherton.com"
+                    placeholder="test@gmail.com"
                     style={{ 
                       width: '100%',
                       padding: '12px 16px',

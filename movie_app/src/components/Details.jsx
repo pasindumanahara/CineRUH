@@ -290,7 +290,7 @@ export default function Details({id, type}) {
               <h1 className="text-3xl font-semibold">
                 {data.title || data.name}
               </h1>
-              <div>2015 • Action • Thriller</div>
+              <div>{data.release_date? data.release_date.slice(0,4): "2015"} • Action • Thriller</div>
             </div>
             <div className="flex items-center justify-center gap-4">
               <button onClick={toggleWatchlist}>
@@ -302,6 +302,7 @@ export default function Details({id, type}) {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* first one - favorites */}
+                  <title>Watch Later</title>
                   <path
                     d="M21.9998 5.11V16.47C21.9998 17.92 20.9598 18.53 19.6898 17.83L17.7598 16.75C17.5998 16.66 17.4998 16.49 17.4998 16.31V8.99C17.4998 6.45 15.4298 4.38 12.8898 4.38H8.81984C8.44984 4.38 8.18984 3.99 8.35984 3.67C8.87984 2.68 9.91984 2 11.1098 2H18.8898C20.5998 2 21.9998 3.4 21.9998 5.11Z"
                     fill={isInWatchlist ? "#fe0505" : "#666"}
@@ -321,6 +322,7 @@ export default function Details({id, type}) {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* heart - watchlist */}
+                  <title>Faourite</title>
                   <path
                     d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
                     fill={isInFavorites ? "#FF6224" : "#666"}
@@ -336,7 +338,7 @@ export default function Details({id, type}) {
                   xmlns="http://www.w3.org/2000/svg"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
                 >
-                  <title>done [#1478]</title>
+                  <title>Watched</title>
                   <desc>Created with Sketch.</desc>
                   <defs></defs>
                   <g
@@ -384,11 +386,11 @@ export default function Details({id, type}) {
               <div className="flex items-center gap-8 mb-6">
                 <div>
                   <h2 className="font-semibold text-lg">Director</h2>
-                  <p className="leading-4">Vince Gilligan</p>
+                  <p className="leading-4">{data.credits.crew.length === 0? "Jacob Villiams": data.credits.crew[1].name}</p>
                 </div>
                 <div>
                   <h2 className="font-semibold text-lg">Producer</h2>
-                  <p className="leading-4">Vince Gilligan</p>
+                  <p className="leading-4">{data.credits.crew.length === 0?  "Joe Doe": data.credits.crew[0].name}</p>
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ export default function NavBar({query, setQuery, searchMovies}) {
           localStorage.clear();
           setTimeout(() => {
             navigate("/"); 
-          }, 500);
+          }, 100);
         }
       })
       .catch(err => {

@@ -74,7 +74,7 @@ export default function SignUp() {
             Sign Up to save your favorite movies and TV-shows, rate <br />
             them, discuss about them add to watch later and more
           </p>
-          <h2 className="text-4xl text-[#E74C3C]">CSC113a Movies</h2>
+          <h2 className="text-4xl text-[#E74C3C]">CineRuh</h2>
         </div>
         <div className="z-1">
           <h1 className="text-[#D9D9D9] text-4xl font-semibold mb-8">
@@ -101,7 +101,7 @@ export default function SignUp() {
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="group19@domain.lk"
+                placeholder="cineruh@gmail.com"
                 className="h-14 bg-[#252B30] px-4 w-[400px] placeholder-[#797979] placeholder:font-medium focus:ring-1 focus:ring-[#282828] rounded-lg text-[#D9D9D9]"
               />
             </div>
