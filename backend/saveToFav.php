@@ -12,13 +12,14 @@
 
     $email = trim($data['email'] ?? '');
     $movie_id = trim($data['movie_id'] ?? '');
+    $movie_name = trim($data['movie_name'] ?? '');
     
     if (!$movie_id || !$email){
         echo json_encode(["status" => "error"]);
         exit;
     }
 
-    $query = "INSERT INTO fav_list (email,`keys`) VALUES('$email','$movie_id')";
+    $query = "INSERT INTO fav_list (email,movie_name,`keys`) VALUES('$email','$movie_name','$movie_id')";
     
     // Execute the Query
     $result = mysqli_query($conn, $query);

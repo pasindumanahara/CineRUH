@@ -62,8 +62,8 @@ export default function App() {
         path="/home"
         element={
           <ProtectedRoute>
-            {/* <NavBar query={query} setQuery={setQuery} searchMovies={searchMovies} />
-            <DetailPanes movies={movies} loading={loading} /> */}
+           <NavBar query={query} setQuery={setQuery} searchMovies={searchMovies} />
+            <DetailPanes movies={movies} loading={loading} /> 
            {/*<WatchLists/>*/}
           </ProtectedRoute>
         }

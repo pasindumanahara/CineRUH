@@ -40,17 +40,17 @@
     // While loops to store each in an array
     $fav_key_list = [];
     while ($row = $fav_list_result->fetch_assoc()) {
-        $fav_key_list[] = $row['keys'];
+        $fav_key_list[] = $row['movie_name'];
     }
     
     $watch_later_key_list = [];
     while ($row = $watch_later_result->fetch_assoc()) {
-        $watch_later_key_list[] = $row['keys'];
+        $watch_later_key_list[] = $row['movie_name'];
     }
     
     $watched_key_list = [];
     while ($row = $watched_result->fetch_assoc()) {
-        $watched_key_list[] = $row['keys'];
+        $watched_key_list[] = $row['movie_name'];
     }
 
     // JSON encode

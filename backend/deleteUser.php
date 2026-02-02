@@ -10,11 +10,9 @@
     $data = json_decode(file_get_contents("php://input"), true);
 
     $email    = $data['email'] ?? '';
-    $password = $data['password'] ?? '';
-    $name     = $data['name'] ?? '';
 
     // Check email and password null 
-    if ($email === "" || $password === "" || $name === "") {
+    if ($email === "") {
         echo json_encode([
             "status" => "error",
             "message" => "Please fill all fields"
@@ -43,11 +41,6 @@
         exit;
     }
 
-    // Password doesn't match
-    if (!password_verify($password, $row['hashed_password'])) {
-        echo json_encode(["status" => "error", "message" => "Authentication Failed"]);
-        exit;
-    }
 
     // Query to delete user
     $delete_user = "DELETE FROM users WHERE email='$email'";

@@ -154,6 +154,7 @@ export default function Details({id, type}) {
         },
         body: JSON.stringify({
           movie_id: data.id,
+          movie_name: data.title,
           "email": localStorage.getItem("email")
         })
       })
@@ -207,6 +208,7 @@ export default function Details({id, type}) {
         },
         body: JSON.stringify({
           movie_id: data.id,
+          movie_name: data.title,
           "email": localStorage.getItem("email")
         })
       })
@@ -256,6 +258,7 @@ export default function Details({id, type}) {
         },
         body: JSON.stringify({
           movie_id: data.id,
+          movie_name: data.title,
           "email": localStorage.getItem("email")
         })
       })
