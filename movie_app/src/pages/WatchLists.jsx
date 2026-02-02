@@ -1,58 +1,43 @@
 import WatchItem from "../components/WatchItem"
 import NavBar from "../components/NavBar"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+
 
 export default function WatchLists() {
     const [fav, setFav] = useState([]);
     const [later, setLater] = useState([]);
     const [watched, setWatched] = useState([]);
+    const navigate = useNavigate();
 
-    const deleteAccount = () => {
-        fetch("http://localhost/deleteUser.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: localStorage.getItem('email')
-            })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.status === "success") {
-                    alert(data.message);
-                    toLogout();
-                } else {
-                    console.err(" Error");
-                }
-            })
-            .catch(err => {
-                console.error(err);
-                console.err("Server Error");
-            });
-    };
-    const toLogout = () => {
+const toLogout = () => {
+    const email = localStorage.getItem("email"); 
+
     fetch("http://localhost/logout.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          // Removing local storage item
-          localStorage.removeItem("isLoggedIn");
-          localStorage.clear();
-          setTimeout(() => {
-            navigate("/"); 
-          }, 500);
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
         }
-      })
-      .catch(err => {
-        console.error(err);
-      });
-    };
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+            fetch("http://localhost/deleteUser.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email })
+            });
+
+           
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("email");
+            navigate("/", { replace: true });
+        }
+    })
+    .catch(err => console.error(err));
+};
 
     fetch("http://localhost/lists.php", {
         method: "POST",
@@ -100,10 +85,11 @@ export default function WatchLists() {
                             </div>
                         </div>
 
-
-                        <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-medium transition-colors" onClick={deleteAccount()}>
+                        <button className="bg-[#E74C3C]  hover:bg-[#C0392B] hover:bg-red-700 text-white px-6 py-2 rounded-lg font-medium transition-colors" onClick={toLogout}>
                             Delete Account
                         </button>
+
+
                     </div>
                 </div>
 
