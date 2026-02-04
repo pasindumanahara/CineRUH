@@ -14,22 +14,22 @@ This project was developed as our **1st Year, 1st Semester** project for **Unive
 ## 📸 Screenshots
 
 ### Login Page
-![Login Page](screenshots/login.png)
+<img src="screenshots/login.png" alt="Login Page" width="600">
 
 ### Signup Page
-![Signup Page](screenshots/signup.png)
+<img src="screenshots/signup.png" alt="Signup Page" width="600">
 
 ### Home Page
-![Home Page](screenshots/home.png)
+<img src="screenshots/home.png" alt="Home Page" width="600">
 
 ### Contact Us Page
-![Home Page](screenshots/contactus.png)
+<img src="screenshots/contactus.png" alt="Contact Us Page" width="600">
 
 ### About Project Page
-![Home Page](screenshots/aboutproject.png)
+<img src="screenshots/aboutproject.png" alt="About Project Page" width="600">
 
 ### Account Page
-![Home Page](screenshots/account.png)
+<img src="screenshots/account.png" alt="Account Page" width="600">
 
 ---
 
