@@ -113,23 +113,24 @@ If you have any questions or suggestions, feel free to contact us:
 
 1. Clone the repository:
 
-git clone https://github.com/pasindumanahara/CineRUH.git
+    git clone https://github.com/pasindumanahara/CineRUH.git
 
 2. Navigate to the project folder:
 
-cd CineRUH
+    cd CineRUH
 
 
 3. Install dependencies:
 
-npm install
+    npm install
 
 
 4. Run the backend:
 
-npm start
+    npm start
 
 You need XAMPP or Apache server to run the backend,
 Copy paste backend files to the htdocs folder or change 
 file path to the relavant location.
 
+Thank you and enjoy 💖
