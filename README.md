@@ -2,12 +2,12 @@
 
 ![Project Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Version](https://img.shields.io/badge/version-v2-blue)
-![Language](https://img.shields.io/badge/language-HTML%2FCSS%2FJS-orange)
+![Language](https://img.shields.io/badge/language-React%2CPHP%2CTailwind--CSS-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 CineRUH is a web platform that allows users to create accounts, search for movies, and manage their personal movie lists. Users can add movies to **Favorites**, **Watched**, and **Watch Later** lists.  
 
-This project was developed as our **1st Year, 1st Semester** project for [Your University Name].
+This project was developed as our **1st Year, 1st Semester** project for **University of Ruhuna**.
 
 ---
 
@@ -22,8 +22,14 @@ This project was developed as our **1st Year, 1st Semester** project for [Your U
 ### Home Page
 ![Home Page](screenshots/home.png)
 
-*Demo GIF coming soon:*  
-![Demo GIF](screenshots/demo.gif)
+### Contact Us Page
+![Home Page](screenshots/contactus.png)
+
+### About Project Page
+![Home Page](screenshots/aboutproject.png)
+
+### Account Page
+![Home Page](screenshots/account.png)
 
 ---
 
@@ -47,18 +53,28 @@ This project was developed as our **1st Year, 1st Semester** project for [Your U
 | **main** | Initial web page designs only |
 | **version1** | Initial backend implementation |
 | **version2** | Deployed version with demo for university submission |
+Upcoming>>
+|**version3** | Separation of Home and Search page, better UI with better User account page | 
+|**version4** | AI chat bot for get suggetion | 
+
 
 ---
 
 ## 🎨 Figma Design
 
 You can view the UI/UX design in Figma here:  
-[Figma Link](your-figma-link-here)
+(https://www.figma.com/design/pnEjTAU89WoWSO0AX7wBf1/CSC113a-Project?node-id=0-1&t=9Gly9iDvE1QdQLS2-1)
 
 ---
 
 ## 📂 Project Structure
 
+CineRUH <br/>
+├── screenshots/<br/>
+├── backend/ # Backend code (version1 onwards)<br/>
+├── movie-app/ # Frontend code<br/>
+├── README.md<br/>
+└── ...other files<br/>
 
 ---
 
@@ -71,7 +87,6 @@ During this project, we learned:
 - Full-stack web development
 - Backend API implementation
 - Database management
-- Deployment and hosting
 - UI/UX design with Figma
 
 ---
@@ -80,18 +95,17 @@ During this project, we learned:
 
 If you have any questions or suggestions, feel free to contact us:
 
-- **Name 1** – [email@example.com](mailto:email@example.com)  
-- **Name 2** – [email@example.com](mailto:email@example.com)  
+- **Pasindu Manahara** – [manahara2003@gmail.com](mailto:email@example.com)  
+- **Dulith Siriwardane** – [dulithsocialmedia@gmail.com](mailto:email@example.com)  
 
 ---
 
 ## ⚡ Technologies Used
 
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** Node.js / Express.js *(adjust if different)*  
-- **Database:** MySQL / MongoDB *(specify what you used)*  
+- **Frontend:** React / Tail-Wind CSS*  
+- **Backend:** PHP *  
+- **Database:** MySQL*  
 - **UI/UX Design:** Figma  
-- **Deployment:** *(Netlify / Vercel / Heroku)*  
 
 ---
 
@@ -99,7 +113,7 @@ If you have any questions or suggestions, feel free to contact us:
 
 1. Clone the repository:
 
-git clone https://github.com/your-username/CineRUH.git
+git clone https://github.com/pasindumanahara/CineRUH.git
 
 2. Navigate to the project folder:
 
